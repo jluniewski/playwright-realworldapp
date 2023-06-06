@@ -12,7 +12,7 @@ test.beforeEach(async ({ browser }) => {
     await page.goto('/');
 });
 
-test.describe('Remember Me option', () => {
+test.describe('Remember Me option', async () => {
     test('remembers username and password', async () => {
         const login = new Login(page);
         await login.typeUsername(users.userEdgar.username);

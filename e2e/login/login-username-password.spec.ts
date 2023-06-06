@@ -16,7 +16,7 @@ test.beforeEach(async ({ browser }) => {
     await page.goto('/');
 });
 
-test.describe('Login page', () => {
+test.describe('Login page', async () => {
     test('allows to login via username and password', async () => {
         const login = new Login(page);
         await login.typeUsername(users.userEdgar.username);
@@ -32,7 +32,7 @@ test.describe('Login page', () => {
 
         await expect(login.getUsernameValidation()).toHaveText(alerts.emptyUsername);
         await expect(login.getPasswordValidation()).toHaveText(alerts.shortPassword);
-        await expect(login.getSignInButton()).toBeDisabled;
+        await expect(login.getSignInButton()).toBeDisabled();
     });
     test('validates incorrect username or password', async () => {
         const login = new Login(page);
@@ -44,8 +44,8 @@ test.describe('Login page', () => {
     });
     test('allows user to go to Sign Up page', async () => {
         const login = new Login(page);
-        await login.clickSignUpButton();
+        await login.clickSignUpLink();
         
-        await expect(login.getSignUpTitle()).toBeVisible;
+        await expect(login.getSignUpTitle()).toBeVisible();
     })
 });
