@@ -54,4 +54,7 @@ export class Login {
     getSignUpTitle() {
         return this.page.getByTestId('signup-title');
     }
+    async logout() {
+        await this.page.getByTestId('sidenav-signout').click();
+    }
 }
