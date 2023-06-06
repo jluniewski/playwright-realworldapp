@@ -1,0 +1,5 @@
+{
+    "emptyUsername": "Username is required",
+    "invalidUsernamePassword": "Username or password is invalid",
+    "shortPassword": "Password must contain at least 4 characters"
+}
