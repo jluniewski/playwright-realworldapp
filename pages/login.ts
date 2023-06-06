@@ -48,7 +48,7 @@ export class Login {
     getSignInAlert() {
         return this.page.getByTestId('signin-error');
     }
-    async clickSignUpButton() {
+    async clickSignUpLink() {
         await this.page.getByTestId('signup').click();
     }
     getSignUpTitle() {
@@ -56,5 +56,44 @@ export class Login {
     }
     async logout() {
         await this.page.getByTestId('sidenav-signout').click();
+    }
+    getFirstName() {
+        return this.page.getByLabel('First Name');
+    }
+    getLastName() {
+        return this.page.getByLabel('Last Name');
+    }
+    getSignUpPassword() {
+        return this.page.locator('#password');
+    }
+    getConfirmPassword() {
+        return this.page.getByLabel('Confirm Password');
+    }
+    async typeFirstName(firstName) {
+        await this.getFirstName().type(firstName);
+    }
+    async typeLastName(lastName) {
+        await this.getLastName().type(lastName);
+    }
+    async typeSignUpPassword(password) {
+        await this.getSignUpPassword().type(password);
+    }
+    async typeConfirmPassword(password) {
+        await this.getConfirmPassword().type(password);
+    }
+    getSignUpButton() {
+        return this.page.getByTestId('signup-submit');
+    }
+    async clickSignUpButton() {
+        await this.getSignUpButton().click();
+    }
+    async clickSignInLink() {
+        await this.page.locator('a[href="/signin"]');
+    }
+    getValidations() {
+        return this.page.locator('[id*="helper-text"]');
+    }
+    getSignInHeader() {
+        return this.page.getByRole('heading', { name: 'Sign in' });
     }
 }
