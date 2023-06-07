@@ -45,7 +45,7 @@ test.describe('Login page', async () => {
     test('allows user to go to Sign Up page', async () => {
         const login = new Login(page);
         await login.clickSignUpLink();
-        
+        await login.clickSignUpLink();
         await expect(login.getSignUpTitle()).toBeVisible();
     })
 });
