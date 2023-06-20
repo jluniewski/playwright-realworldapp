@@ -16,6 +16,10 @@ export class MyAccount {
         await this.page.goto('/user/settings');
         await this.page.waitForSelector('header');
     }
+    async goto() {
+        await this.page.goto('/user/settings');
+        await this.page.waitForSelector('header');
+    }
     async reloadPage() {
         await this.page.reload();
         await this.page.waitForSelector('header');

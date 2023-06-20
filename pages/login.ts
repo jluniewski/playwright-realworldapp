@@ -48,8 +48,12 @@ export class Login {
     getSignInAlert() {
         return this.page.getByTestId('signin-error');
     }
+    getSignUpLink() {
+        return this.page.getByTestId('signup')
+    }
     async clickSignUpLink() {
-        await this.page.getByTestId('signup').click();
+        await expect(this.getSignUpLink()).toBeVisible;
+        await this.getSignUpLink().click();
     }
     getSignUpTitle() {
         return this.page.getByTestId('signup-title');
@@ -88,7 +92,7 @@ export class Login {
         await this.getSignUpButton().click();
     }
     async clickSignInLink() {
-        await this.page.locator('a[href="/signin"]');
+        await this.page.locator('a[href="/signin"]').click();
     }
     getValidations() {
         return this.page.locator('[id*="helper-text"]');
