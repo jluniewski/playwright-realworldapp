@@ -8,5 +8,6 @@
     "emptySignUpPassword": "Enter your password",
     "emptyConfirmPassword": "Confirm your password",
     "signUpShortPassword": "Password must contain at least 4 characters",
-    "passwordsDontMatch": "Password does not match"
+    "passwordsDontMatch": "Password does not match",
+    "noNotifications": "No Notifications"
 }
