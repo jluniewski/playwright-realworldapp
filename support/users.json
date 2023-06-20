@@ -65,7 +65,9 @@
         "username": "newUser",
         "password": "s3cret",
         "name": "John",
-        "lastname": "Doe"
+        "lastname": "Doe",
+        "email": "newUser@test.new",
+        "phone": "776-142-4511"
     }
 
 }
