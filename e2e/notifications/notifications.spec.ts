@@ -7,32 +7,23 @@ const alerts = require('../../support/alerts.json');
 const notificationsList = require('../../support/notifications.json');
 
 let page: Page;
+let notifications: Notifications;
 
 test.beforeEach(async ({ browser }) => {
     await General.seedDb();
     page = await browser.newPage();
-    await page.goto('/');
+    notifications = new Notifications(page);
+    await page.goto('/notifications');
     await page.waitForSelector('main');
 });
 
 test.describe('Notifications page', async () => {
     test('shows all notifications on the list', async () => {
-        const notifications = new Notifications(page);
-        await notifications.loginUsernamePassword(
-            users.userEdgar.username,
-            users.userEdgar.password
-        );
-
         await notificationsList.list.forEach(async (singleNotification) => {
             await expect(await notifications.getAllNotifications()).toContain(singleNotification);
         });
     });
     test('can be opened from bell icon', async () => {
-        const notifications = new Notifications(page);
-        await notifications.loginUsernamePassword(
-            users.userEdgar.username,
-            users.userEdgar.password
-        );
         await notifications.clickBellIcon();
 
         await expect(await notifications.getBellIcon()).toContainText(
@@ -43,11 +34,6 @@ test.describe('Notifications page', async () => {
         });
     });
     test('allows to dismiss a notification', async () => {
-        const notifications = new Notifications(page);
-        await notifications.loginUsernamePassword(
-            users.userEdgar.username,
-            users.userEdgar.password
-        );
         await notifications.dismiss(notificationsList.list[0]);
 
         await expect(await notifications.getAllNotifications()).not.toContain(
@@ -55,11 +41,6 @@ test.describe('Notifications page', async () => {
         );
     });
     test('shows message for no notifications', async () => {
-        const notifications = new Notifications(page);
-        await notifications.loginUsernamePassword(
-            users.userEdgar.username,
-            users.userEdgar.password
-        );
         await notifications.dismissAll(notificationsList);
 
         await expect(await notifications.getMain()).toContainText(alerts.noNotifications);
