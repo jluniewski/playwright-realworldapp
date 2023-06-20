@@ -9,5 +9,11 @@
     "emptyConfirmPassword": "Confirm your password",
     "signUpShortPassword": "Password must contain at least 4 characters",
     "passwordsDontMatch": "Password does not match",
+    "emptySettingsFirstName": "Enter a first name",
+    "emptySettingsLastName": "Enter a last name",
+    "emptySettingsEmail": "Enter an email address",
+    "emptySettingsPhone": "Enter a phone number",
+    "invalidSettingsEmail": "Must contain a valid email address",
+    "invalidSettingsPhone": "Phone number is not valid",
     "noNotifications": "No Notifications"
 }
