@@ -14,5 +14,10 @@
     "emptySettingsEmail": "Enter an email address",
     "emptySettingsPhone": "Enter a phone number",
     "invalidSettingsEmail": "Must contain a valid email address",
-    "invalidSettingsPhone": "Phone number is not valid"
+    "invalidSettingsPhone": "Phone number is not valid",
+    "emptyBankName": "Enter a bank name",
+    "emptyRoutingNumber": "Enter a valid bank routing number",
+    "emptyAccountNumber": "Enter a valid bank account number",
+    "incorrectRoutingNumber": "Must contain a valid routing number",
+    "incorrectAccountNumber": "Must contain at least 9 digits"
 }
