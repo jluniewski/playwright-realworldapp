@@ -19,5 +19,8 @@
     "emptyRoutingNumber": "Enter a valid bank routing number",
     "emptyAccountNumber": "Enter a valid bank account number",
     "incorrectRoutingNumber": "Must contain a valid routing number",
-    "incorrectAccountNumber": "Must contain at least 9 digits"
+    "incorrectAccountNumber": "Must contain at least 9 digits",
+    "addedTransaction": "Transaction Submitted!",
+    "emptyPaymentAmount": "Please enter a valid amount",
+    "emptyPaymentNote": "Please enter a note"
 }
