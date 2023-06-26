@@ -5,16 +5,17 @@ import { General } from '../../pages/general';
 const users = require('../../support/users.json');
 
 let page: Page;
+let login: Login;
 
 test.beforeEach(async ({ browser }) => {
-    General.seedDb();
+    await General.seedDb();
     page = await browser.newPage();
+    login = new Login(page);
     await page.goto('/');
 });
 
 test.describe('Remember Me option', async () => {
     test('remembers username and password', async () => {
-        const login = new Login(page);
         await login.typeUsername(users.userEdgar.username);
         await login.typePassword(users.userEdgar.password);
         await login.clickSignIn();
