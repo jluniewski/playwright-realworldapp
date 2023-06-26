@@ -132,6 +132,6 @@ export class Transactions {
         await this.page.getByTestId('new-transaction-return-to-transactions').click();
     }
     async getAccountBalance() {
-        return this.page.getByTestId('sidenav-user-balance').textContent();
+        return this.page.getByTestId('sidenav-user-balance');
     }
 }
