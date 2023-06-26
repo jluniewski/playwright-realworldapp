@@ -6,19 +6,20 @@ const users = require('../../support/users.json');
 const alerts = require('../../support/alerts.json');
 
 let page: Page;
+let login: Login;
 
 let shortPassword = 'abc';
 let incorrectPassword = 'test';
 
 test.beforeEach(async ({ browser }) => {
-    General.seedDb();
+    await General.seedDb();
     page = await browser.newPage();
+    login = await new Login(page);
     await page.goto('/signup');
 });
 
 test.describe('Sign Up form', async () => {
     test('allows user to create new account', async () => {
-        const login = new Login(page);
         await login.typeFirstName(users.newUser.name);
         await login.typeLastName(users.newUser.password);
         await login.typeUsername(users.newUser.username);
@@ -29,7 +30,6 @@ test.describe('Sign Up form', async () => {
         await expect(login.getSignInHeader()).toBeVisible();
     });
     test('validates empty inputs', async () => {
-        const login = new Login(page);
         await login.typeFirstName('');
         await login.typeLastName('');
         await login.typeUsername('');
@@ -44,13 +44,11 @@ test.describe('Sign Up form', async () => {
         await expect(login.getValidations().nth(4)).toHaveText(alerts.emptyConfirmPassword);
     });
     test('validates short password', async () => {
-        const login = new Login(page);
         await login.typeSignUpPassword(shortPassword);
 
         await expect(login.getValidations().nth(1)).toHaveText(alerts.signUpShortPassword);
     });
     test('validates not matching passwords', async () => {
-        const login = new Login(page);
         await login.typeSignUpPassword(incorrectPassword);
         await login.typeConfirmPassword(shortPassword);
 

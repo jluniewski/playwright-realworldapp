@@ -15,6 +15,7 @@
     "emptySettingsPhone": "Enter a phone number",
     "invalidSettingsEmail": "Must contain a valid email address",
     "invalidSettingsPhone": "Phone number is not valid",
+    "noNotifications": "No Notifications",
     "emptyBankName": "Enter a bank name",
     "emptyRoutingNumber": "Enter a valid bank routing number",
     "emptyAccountNumber": "Enter a valid bank account number",
