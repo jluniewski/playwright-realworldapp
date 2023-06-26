@@ -91,8 +91,9 @@ test.describe('New Transaction', async () => {
         await transactions.typeAmount(transactionList.accountBalance.amount);
         await transactions.typeNote(transactionList.accountBalance.note);
         await transactions.clickPayButton();
-
-        await expect(await transactions.getAccountBalance()).toContain(
+        
+        await expect(await transactions.getAlert()).toContain(alerts.addedTransaction);
+        await expect(await transactions.getAccountBalance()).toHaveText(
             transactionList.accountBalance.balanceAfter
         );
     });

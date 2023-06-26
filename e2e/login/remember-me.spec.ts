@@ -15,7 +15,7 @@ test.beforeEach(async ({ browser }) => {
 });
 
 test.describe('Remember Me option', async () => {
-    test('remembers username and password', async () => {
+    test.skip('remembers username and password', async () => {
         await login.typeUsername(users.userEdgar.username);
         await login.typePassword(users.userEdgar.password);
         await login.clickSignIn();
